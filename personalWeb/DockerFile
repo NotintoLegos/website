@@ -1,0 +1,19 @@
+FROM node:22
+
+# probably need to change this. not sure what the directory is though
+WORKDIR /src
+
+#copies package.json and package-lock.json (if available)
+COPY package*.json ./
+
+# install app dependencies
+RUN npm install
+
+COPY . .
+
+
+ENV PORT=8080
+
+EXPOSE 8080
+
+CMD ["npm", "start"]

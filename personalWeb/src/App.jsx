@@ -16,9 +16,9 @@ function App() {
           <img src={viteLogo} className="vite" alt="Vite logo" />
         </div>
         <div>
-          <h1>Get started</h1>
+          <h1>Hello, I'm John Hope</h1>
           <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+            Recent computer science graduate of DePaul University
           </p>
         </div>
         <button
@@ -62,7 +62,7 @@ function App() {
           <p>Join the Vite community</p>
           <ul>
             <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
+              <a href="https://github.com/NotintoLegos" target="_blank">
                 <svg
                   className="button-icon"
                   role="presentation"
