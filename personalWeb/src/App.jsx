@@ -1,25 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import Dashboard from './Dashboard';
+import Header from './Header.jsx'
 
-function App() {
-  const [count, setCount] = useState(0)
+import reactLogo from './assets/react.svg';
+import viteLogo from './assets/vite.svg';
+import heroImg from './assets/hero.png';
+import grad_pic from './assets/grad_pic.png';
+
+import './App.css';
+
+
+// Navigation Button Component
+function NavigateButton() {
+  const nav = useNavigate();
+  return (
+    <button onClick={() => nav("/dashboard")}>
+      About Me
+    </button>
+  );
+}
+
+// Home Page Component
+function HomePage() {
+  const [count, setCount] = useState(0);
 
   return (
     <>
+      <section id="header">
+          <Header className = "head"/>
+      </section>
+
       <section id="center">
         <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+          <img src={grad_pic} className="grad" width="170" height="170" alt="" />
+        </div>
+        <div className="hero">
+          {/* Second hero div content */}
         </div>
         <div>
           <h1>Hello, I'm John Hope</h1>
-          <p>
-            Recent computer science graduate of DePaul University
-          </p>
+          <p>Welcome to my portfolio page</p>
+          <p>I am a recent computer science graduate of DePaul University</p>
         </div>
         <button
           type="button"
@@ -63,11 +85,7 @@ function App() {
           <ul>
             <li>
               <a href="https://github.com/NotintoLegos" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
+                <svg className="button-icon" role="presentation" aria-hidden="true">
                   <use href="/icons.svg#github-icon"></use>
                 </svg>
                 GitHub
@@ -75,11 +93,7 @@ function App() {
             </li>
             <li>
               <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
+                <svg className="button-icon" role="presentation" aria-hidden="true">
                   <use href="/icons.svg#discord-icon"></use>
                 </svg>
                 Discord
@@ -87,11 +101,7 @@ function App() {
             </li>
             <li>
               <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
+                <svg className="button-icon" role="presentation" aria-hidden="true">
                   <use href="/icons.svg#x-icon"></use>
                 </svg>
                 X.com
@@ -99,11 +109,7 @@ function App() {
             </li>
             <li>
               <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
+                <svg className="button-icon" role="presentation" aria-hidden="true">
                   <use href="/icons.svg#bluesky-icon"></use>
                 </svg>
                 Bluesky
@@ -116,7 +122,19 @@ function App() {
       <div className="ticks"></div>
       <section id="spacer"></section>
     </>
-  )
+  );
 }
 
-export default App
+// Main App with Router
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
