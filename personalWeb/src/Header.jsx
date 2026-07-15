@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Header.css';
+
 
 export default function Header() {
   // Manage visibility state of the dropdown menu
+  const navigate = useNavigate()
   const [isOpen, setIsOpen] = useState(false);
-
   const [anchorE1, setAnchorE1] = useState(null)
   const [timer, setTimer] =useState(null)
 
@@ -22,9 +24,11 @@ export default function Header() {
   };
 
   // Close dropdown when an option is selected
-  const handleItemClick = () => {
-    setIsOpen(false);
-  };
+  const handleNavigation = (path) => {
+    console.log("used nav at path: ", {path})
+    navigate(path)
+    setIsOpen(false)
+  }
 
   return (
     <header className="header">
@@ -44,13 +48,25 @@ export default function Header() {
                ☰
             </button>
 
-            {/* Conditional Rendering of Menu */}
             {isOpen && (
-              <ul className="dropdown-menu">
-                <li><a href="#about" onClick={handleItemClick}>About Me</a></li>
-                <li><a href="#projects" onClick={handleItemClick}>Projects</a></li>
-                <li><a href="#contact" onClick={handleItemClick}>Contact</a></li>
-              </ul>
+                <ul className="dropdown-menu">
+                    <li>
+                        <button
+                            onClick={() => handleNavigation('/about')}
+                            className='dropdown-item'
+                        >
+                            About Me
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            onClick={() => handleNavigation('/projects')}
+                            className='dropdown-item'
+                        >
+                            Projects
+                        </button>
+                    </li>
+                </ul>
             )}
           </li>
         </ul>

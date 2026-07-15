@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
-import Dashboard from './Dashboard';
-import Header from './Header.jsx'
+import About from './About';
+import Header from './Header'
+import Projects from './Projects';
 
 import reactLogo from './assets/react.svg';
 import viteLogo from './assets/vite.svg';
@@ -131,7 +132,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
       </Routes>
     </Router>
   );
