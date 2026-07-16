@@ -36,9 +36,6 @@ function HomePage() {
         <div className="hero">
           <img src={grad_pic} className="grad" width="170" height="170" alt="" />
         </div>
-        <div className="hero">
-          {/* Second hero div content */}
-        </div>
         <div>
           <h1>Hello, I'm John Hope</h1>
           <p>Welcome to my portfolio page</p>
