@@ -11,6 +11,16 @@ export default function Header() {
   const [timer, setTimer] =useState(null)
 
 
+  // array of current menu items, can be added to later
+  const menuItems = [
+    {path: '/about', label: 'About Me'},
+    {path: '/projects', label: 'Projects'},
+    {path: '/contact', label: 'Contact'}
+  ]
+
+  // filter out from the menu the route the user is currently on
+  const filterMenuItems= menuItems.filter(item => item.path !== location.pathname)
+
   const handleMouseLeave = () => {
     const newTimer= setTimeout(() => {
         setAnchorE1(null);
@@ -46,22 +56,16 @@ export default function Header() {
                 <ul className="dropdown-menu"
                     onMouseLeave={toggleDropdown}
                     >
-                    <li>
-                        <button
-                            onClick={() => handleNavigation('/about')}
-                            className='dropdown-item'
-                        >
-                            About Me
-                        </button>
-                    </li>
-                    <li>
-                        <button
-                            onClick={() => handleNavigation('/projects')}
-                            className='dropdown-item'
-                        >
-                            Projects
-                        </button>
-                    </li>
+                    {filterMenuItems.map((item) => (
+                        <li key= {item.path} >
+                            <button
+                                onClick={() => handleNavigation(item.path)}
+                                className='dropdown-item'
+                            >
+                                {item.label}
+                            </button>
+                        </li>
+                    ))}
                 </ul>
             )}
         </li>  
@@ -76,9 +80,7 @@ export default function Header() {
         <ul className="nav-links">
           
           {/* Dropdown Container */}
-          <Menu>
-            
-          </Menu>
+          <Menu></Menu>
         </ul>
       </nav>
     </header>
