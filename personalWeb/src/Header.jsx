@@ -30,15 +30,9 @@ export default function Header() {
     setIsOpen(false)
   }
 
-  return (
-    <header className="header">
-      <div className="logo">MyBrand</div>
-      
-      <nav className="nav">
-        <ul className="nav-links">
-          
-          {/* Dropdown Container */}
-          <li className="dropdown-container">
+  const Menu = () => {
+    return (
+        <li className="dropdown-container">
             <button 
               className="dropdown-trigger" 
               onMouseEnter={toggleDropdown}
@@ -49,7 +43,9 @@ export default function Header() {
             </button>
 
             {isOpen && (
-                <ul className="dropdown-menu">
+                <ul className="dropdown-menu"
+                    onMouseLeave={toggleDropdown}
+                    >
                     <li>
                         <button
                             onClick={() => handleNavigation('/about')}
@@ -68,7 +64,21 @@ export default function Header() {
                     </li>
                 </ul>
             )}
-          </li>
+        </li>  
+    )
+  }
+
+  return (
+    <header className="header">
+      <div className="logo">MyBrand</div>
+      
+      <nav className="nav">
+        <ul className="nav-links">
+          
+          {/* Dropdown Container */}
+          <Menu>
+            
+          </Menu>
         </ul>
       </nav>
     </header>
