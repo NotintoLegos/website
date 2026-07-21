@@ -10,7 +10,6 @@ export default function Header() {
   const [anchorE1, setAnchorE1] = useState(null)
   const [timer, setTimer] =useState(null)
 
-
   // array of current menu items, can be added to later
   const menuItems = [
     {path: '/about', label: 'About Me'},
@@ -35,9 +34,14 @@ export default function Header() {
 
   // Close dropdown when an option is selected
   const handleNavigation = (path) => {
-    console.log("used nav at path: ", {path})
+    console.log("dropdown nav at path: ", {path})
     navigate(path)
     setIsOpen(false)
+  }
+
+  const handleLogoClick = () => {
+    console.log("logo header click")
+    navigate('/')
   }
 
   const Menu = () => {
@@ -74,8 +78,13 @@ export default function Header() {
 
   return (
     <header className="header">
-      <div className="logo">MyBrand</div>
-      
+      <div 
+        className="logo"
+        onClick={handleLogoClick}
+        style={{cursor: 'pointer'}}
+      >
+        John Hope 
+      </div>
       <nav className="nav">
         <ul className="nav-links">
           
