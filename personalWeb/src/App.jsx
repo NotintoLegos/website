@@ -12,24 +12,27 @@ import grad_pic from './assets/grad_pic.png';
 import './App.css';
 
 
-// Navigation Button Component
-function NavigateButton() {
-  const nav = useNavigate();
-  return (
-    <button onClick={() => nav("/dashboard")}>
-      About Me
-    </button>
-  );
-}
-
 // Home Page Component
 function HomePage() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0); //                       * don't need
+  
+  const [dropDowns, setDropdowns] = useState({
+    about: false,
+    projects: false,
+    contact: false,
+  })
+
+  const toggleDropdown = (key) => { //passes key name and sets its value to the opposite of current state
+    setDropdowns((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }))
+  }
 
   return (
     <>
       <section id="header">
-          <Header className = "head"/>
+          <Header className = "head"/>  {/* Needs to be changed to only My Logo */}
       </section>
 
       <section id="center">
@@ -50,7 +53,56 @@ function HomePage() {
         >
           Count is {count}
         </button>
+
       </section>
+      
+
+      <section id= "hidden-info">
+        <div className= "about-info">
+          <button
+            type= "button"
+            className={dropDowns.about}
+            onClick={() => toggleDropdown('about')}
+          > About Me </button>
+          {dropDowns.about && (
+            <About></About>
+          )}
+        </div>
+        <div className="projects-info">
+          <button
+            type= "button"
+            className={dropDowns.projects}
+            onClick={() => toggleDropdown('projects')}
+          > Projects </button>
+          {dropDowns.projects && (
+            <Projects></Projects>
+          )}
+        </div>
+      </section>
+      
+
+{/* 
+{isOpen && (
+                <ul className="dropdown-menu"
+                    onMouseLeave={toggleDropdown}
+                    >
+                    {filterMenuItems.map((item) => (
+                        <li key= {item.path} >
+                            <button
+                                onClick={() => handleNavigation(item.path)}
+                                className='dropdown-item'
+                            >
+                                {item.label}
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+            )}
+
+*/}
+
+
+
 
       <div className="ticks"></div>
 
@@ -131,8 +183,6 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Projects />} />
       </Routes>
     </Router>
   );
