@@ -46,13 +46,6 @@ function HomePage() {
           <h1>Hello, I'm John Hope</h1>
           <p>Welcome to my portfolio page</p>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
 
       </section>
       
@@ -81,25 +74,6 @@ function HomePage() {
       </section>
       
 
-{/* 
-{isOpen && (
-                <ul className="dropdown-menu"
-                    onMouseLeave={toggleDropdown}
-                    >
-                    {filterMenuItems.map((item) => (
-                        <li key= {item.path} >
-                            <button
-                                onClick={() => handleNavigation(item.path)}
-                                className='dropdown-item'
-                            >
-                                {item.label}
-                            </button>
-                        </li>
-                    ))}
-                </ul>
-            )}
-
-*/}
 
 
 
@@ -107,33 +81,11 @@ function HomePage() {
       <div className="ticks"></div>
 
       <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
         <div id="social">
           <svg className="icon" role="presentation" aria-hidden="true">
             <use href="/icons.svg#social-icon"></use>
           </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
+          <h2>Connect with me</h2>
           <ul>
             <li>
               <a href="https://github.com/NotintoLegos" target="_blank">
@@ -144,34 +96,17 @@ function HomePage() {
               </a>
             </li>
             <li>
-              <a href="https://chat.vite.dev/" target="_blank">
+              <a href="https://www.linkedin.com/in/john-hope1997/" target="_blank">
                 <svg className="button-icon" role="presentation" aria-hidden="true">
-                  <use href="/icons.svg#discord-icon"></use>
+                  <use href="/public/linkedin.svg"></use>
                 </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg className="button-icon" role="presentation" aria-hidden="true">
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg className="button-icon" role="presentation" aria-hidden="true">
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
+                LinkedIn
               </a>
             </li>
           </ul>
         </div>
       </section>
 
-      <div className="ticks"></div>
       <section id="spacer"></section>
     </>
   );
