@@ -29,6 +29,21 @@ function HomePage() {
     }))
   }
 
+  const DropDown = ({name, label, children}) => {
+    return (
+      <div className= {'${name}-info'}>
+          <button
+            type= "button"
+            className={dropDowns[name] ? 'active' : undefined}
+            onClick={() => toggleDropdown(name)}
+          > 
+            {label} 
+          </button>
+          {dropDowns[name] && children}
+        </div>
+    )
+  }
+
   return (
     <>
       <section id="header">
@@ -51,41 +66,27 @@ function HomePage() {
       
 
       <section id= "hidden-info">
-        <div className= "about-info">
-          <button
-            type= "button"
-            className={dropDowns.about}
-            onClick={() => toggleDropdown('about')}
-          > About Me </button>
-          {dropDowns.about && (
-            <About></About>
-          )}
-        </div>
-        <div className="projects-info">
-          <button
-            type= "button"
-            className={dropDowns.projects}
-            onClick={() => toggleDropdown('projects')}
-          > Projects </button>
-          {dropDowns.projects && (
-            <Projects></Projects>
-          )}
-        </div>
+        <DropDown name='about' label="About Me">
+          <About />
+        </DropDown>
+
+        <DropDown name='projects' label="Projects">
+          <Projects />
+        </DropDown>
+
+        <DropDown name= 'contact' label="Contact">
+          <div className='contact-content'>
+            <p>Email: exampleTest</p>
+          </div>
+        </DropDown>
       </section>
-      
-
-
-
-
-
-      <div className="ticks"></div>
 
       <section id="next-steps">
         <div id="social">
           <svg className="icon" role="presentation" aria-hidden="true">
             <use href="/icons.svg#social-icon"></use>
           </svg>
-          <h2>Connect with me</h2>
+          <h2>Links to my other sites</h2>
           <ul>
             <li>
               <a href="https://github.com/NotintoLegos" target="_blank">
