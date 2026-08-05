@@ -7,7 +7,7 @@ import Projects from './Projects';
 import reactLogo from './assets/react.svg';
 import viteLogo from './assets/vite.svg';
 import heroImg from './assets/hero.png';
-import grad_pic from './assets/grad_pic.png';
+import grad_pic from './assets/grad-pic-2.jpeg';
 
 import './App.css';
 
@@ -50,9 +50,9 @@ function HomePage() {
           <Header className = "head"/>  {/* Needs to be changed to only My Logo */}
       </section>
 
-      <section id="center">
+      <section id="left-pic">
         <div className="hero">
-          <img src={grad_pic} className="grad" width="170" height="170" alt="" />
+          <img src={grad_pic} className="grad" alt="" />
         </div>
         <div className="hero">
           {/* Second hero div content */}
